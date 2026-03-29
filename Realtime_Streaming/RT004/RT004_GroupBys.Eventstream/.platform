@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Eventstream",
+    "displayName": "RT004_GroupBys"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "4437f741-ee43-b2d6-44b4-ef16eeddbea1"
+  }
+}

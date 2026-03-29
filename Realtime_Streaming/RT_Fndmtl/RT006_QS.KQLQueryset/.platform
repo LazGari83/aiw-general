@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "KQLQueryset",
+    "displayName": "RT006_QS",
+    "description": "RT007_QS"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "cfa486ab-927f-b963-4134-cf688fc00a32"
+  }
+}

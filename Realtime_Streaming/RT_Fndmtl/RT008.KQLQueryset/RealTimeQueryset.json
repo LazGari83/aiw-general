@@ -1,0 +1,22 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "c5497976-c68e-45a7-b616-0dfce5477a78",
+        "clusterUri": "",
+        "type": "Fabric",
+        "databaseItemId": "9740e3c3-614e-869a-4c22-ab5c84cbc70d",
+        "databaseItemName": "RT003_BikeStream"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "c061823b-90e2-466a-b00d-854904846db6",
+        "content": "\n\n// 1. Generic structure for an aggregation in KQL\nRaw_Bike\n| summarize TotalEvents = count()\n\n\n// 2. Group By a column \nRaw_Bike\n| summarize TotalEvents = count() by BikepointID\n\n\n// 3. Multiple aggregates\nRaw_Bike\n| summarize TotalEvents = count(), MinBikes = min(No_Bikes) by BikepointID\n\n// 4. Using countif to count empty bike stations events \n\nRaw_Bike\n| summarize TotalEvents = count(), TotalEventsEmptyStation = countif(No_Bikes == 0 ) by BikepointID\n\n// 5. Adding the EmptyStationPercentage\nRaw_Bike\n| summarize TotalEvents = count(), TotalEventsEmptyStation = countif(No_Bikes == 0 ) by BikepointID\n| extend EmptyStationPercentage = round(todouble(TotalEventsEmptyStation) / todouble(TotalEvents),2)*100\n\n// 6. Returning only the stations which have an EmptyStationPercentage of != 0 \nRaw_Bike\n| summarize TotalEvents = count(), TotalEventsEmptyStation = countif(No_Bikes == 0 ) by BikepointID\n| extend EmptyStationPercentage = round(todouble(TotalEventsEmptyStation) / todouble(TotalEvents),2)*100\n| where EmptyStationPercentage != 0\n\n// 7. Binning by ingestion_time()\nRaw_Bike\n| summarize TotalEvents = count() by bin(ingestion_time(), 12m)\n\n// 8. Binning by ingestion_time() and BikepointID \nRaw_Bike\n| summarize TotalEvents = count() by bin(ingestion_time(), 12m), BikepointID ",
+        "title": "Tab",
+        "dataSourceId": "c5497976-c68e-45a7-b616-0dfce5477a78"
+      }
+    ]
+  }
+}

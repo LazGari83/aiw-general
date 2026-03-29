@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "KQLDatabase",
+    "displayName": "RT003_BikeStream",
+    "description": "RT003_BikeStream"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9740e3c3-614e-869a-4c22-ab5c84cbc70d"
+  }
+}

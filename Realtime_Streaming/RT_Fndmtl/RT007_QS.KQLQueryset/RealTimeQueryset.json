@@ -1,0 +1,22 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "0c60d339-3da1-476f-b31f-cbfb1aa8bf6b",
+        "clusterUri": "",
+        "type": "Fabric",
+        "databaseItemId": "9740e3c3-614e-869a-4c22-ab5c84cbc70d",
+        "databaseItemName": "RT003_BikeStream"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "cd52549b-636f-4980-8b5d-0f6d436ba008",
+        "content": "\n\n// 1. Exact String Match (Case-Sensitive)\nRaw_Bike\n| where Neighbourhood == \"Mile End\"\n\n// 2. Exact String Match (Case-Insensitive - try not to use not recommended, unless needed)\nRaw_Bike\n| where Neighbourhood =~ \"mile end\"\n\n// 3. String Has\nRaw_Bike\n| where Street has \"End\"\n\n// 4. String Contains (Less Recommended - see KQL best Practices)\nRaw_Bike\n| where Street contains \"End\"\n\n// 5. String endswith \nRaw_Bike\n| where Neighbourhood startswith \"West\"\n\n// 6. String endswith \nRaw_Bike\n| where BikepointID endswith \"649\"\n\n// 7. String Not Equal \nRaw_Bike\n| where No_Bikes != \"West End\"\n\n// 8. Integer Equality - empty bike racks \nRaw_Bike\n| where No_Bikes == 0\n\n// 9. Integer less than or equal to (bikes running out!)\nRaw_Bike\n| where No_Bikes <= 3\n\n// 10. Integer greater than (lots of space, consider moving bikes)\nRaw_Bike\n| where No_Empty_Docks > 30 \n\n// 11. Numeric ranges - using the (X .. Y) syntax\nRaw_Bike\n| where Latitude between (51.461 .. 51.472)\n\n// 12. Dateime equality (exact match)\nRaw_Bike\n| where ingestion_time() == datetime(2025-02-17 10:00:00)\n\n// 13. Date/Time Range (After a specific date/time)\nRaw_Bike\n| where ingestion_time() > datetime(2025-02-18 10:15:00)\n\n// 14. Using ago() in datetime filtering \nRaw_Bike\n| where ingestion_time() > ago(24h)\n\n// 15. Using between, ago() and now() \nRaw_Bike\n| where ingestion_time() between (ago(24h) .. now())\n\n// 16. Records ingested yesterday\nRaw_Bike\n| where ingestion_time() between (startofday(ago(1d)) .. endofday(ago(1d)))\n\n// 17. Multiple Conditions (AND)\nRaw_Bike\n| where Neighbourhood == \"Mile End\" and No_Bikes > 5\n\n// 18. Multiple Conditions (OR)\nRaw_Bike\n| where Neighbourhood == \"Mile End\" or No_Bikes > 5\n\n// 19. Using 'in' operator for multiple string matches\nRaw_Bike\n| where Neighbourhood in (\"Mile End\", \"Sands End\")\n\n// 20. Negating a filter with 'not'\nRaw_Bike\n| where not (Neighbourhood in (\"Mile End\", \"Sands End\"))",
+        "title": "Tab",
+        "dataSourceId": "0c60d339-3da1-476f-b31f-cbfb1aa8bf6b"
+      }
+    ]
+  }
+}
