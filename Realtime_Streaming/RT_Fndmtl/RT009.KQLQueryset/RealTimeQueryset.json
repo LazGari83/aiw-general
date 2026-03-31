@@ -1,0 +1,22 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "813c90a7-a4fd-40ea-ba65-26e4dcf480f5",
+        "clusterUri": "",
+        "type": "Fabric",
+        "databaseItemId": "9740e3c3-614e-869a-4c22-ab5c84cbc70d",
+        "databaseItemName": "RT003_BikeStream"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "5a1dd6d4-a57a-4712-b431-a826f92a1d96",
+        "content": "\n\n.show tables \n\n.create table ExamScores(\n     student_id:guid,\n exam_score:int,         \n exam_code:string \n)\n\n.ingest inline into table ExamScores <|  \n8fc23b7e-9d14-4a6c-b135-f89ca2e6d0a2,700,DP-700 \n3ae91f5d-7c82-4b9f-a670-e15db3c8f4e7,876,DP-700\n1d67a2c0-5e3b-4d8f-9f42-b0a6c9d1e3f8,770,DP-700\n\n.clear table ExamScores data \n\n.create materialized-view with (\n     backfill=true,\n     effectiveDateTime=datetime(2025-02-01)\n) BikeAvailabilityByNeighborhood on table Raw_Bike\n{\n    Raw_Bike\n    | summarize\n        MinBikes = min(No_Bikes),\n        MaxEmptyDocks = max(No_Empty_Docks)\n        by BikepointID\n}\n\nBikeAvailabilityByNeighborhood\n\n.create function with (docstring = \"Gets all datapoints for a given BikepointID\") \n GetBikeDataByID(ID:string) {\n    Raw_Bike\n    | where BikepointID == ID\n }\n\nGetBikeDataByID(\"BikePoints_763\")",
+        "title": "Tab",
+        "dataSourceId": "813c90a7-a4fd-40ea-ba65-26e4dcf480f5"
+      }
+    ]
+  }
+}

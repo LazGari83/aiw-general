@@ -7,3 +7,13 @@
 ```
 [{"Properties":{"Path":"$['BikepointID']"},"column":"BikepointID","datatype":""},{"Properties":{"Path":"$['Street']"},"column":"Street","datatype":""},{"Properties":{"Path":"$['Neighbourhood']"},"column":"Neighbourhood","datatype":""},{"Properties":{"Path":"$['Latitude']"},"column":"Latitude","datatype":""},{"Properties":{"Path":"$['Longitude']"},"column":"Longitude","datatype":""},{"Properties":{"Path":"$['No_Bikes']"},"column":"No_Bikes","datatype":""},{"Properties":{"Path":"$['No_Empty_Docks']"},"column":"No_Empty_Docks","datatype":""}]
 ```
+.create-merge table ExamScores (student_id:guid, exam_score:int, exam_code:string) 
+.create-or-alter function with (docstring = "Gets all datapoints for a given BikepointID", skipvalidation = "true") GetBikeDataByID(ID:string) {
+    Raw_Bike
+    | where BikepointID == ID
+ }
+.create-or-alter materialized-view  BikeAvailabilityByNeighborhood on table Raw_Bike { Raw_Bike
+    | summarize
+        MinBikes = min(No_Bikes),
+        MaxEmptyDocks = max(No_Empty_Docks)
+        by BikepointID }
