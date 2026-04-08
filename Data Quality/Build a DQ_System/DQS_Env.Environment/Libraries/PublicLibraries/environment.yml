@@ -1,0 +1,4 @@
+dependencies:
+  - pip:
+      - great-expectations==1.2.4
+      - semantic-link-labs==0.8.3
