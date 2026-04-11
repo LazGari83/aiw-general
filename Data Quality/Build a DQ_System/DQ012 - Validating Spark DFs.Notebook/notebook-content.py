@@ -8,12 +8,18 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse_name": "",
-# META       "default_lakehouse_workspace_id": ""
+# META       "default_lakehouse": "72848c38-5bd9-4597-afd8-3e651a6caead",
+# META       "default_lakehouse_name": "DQ009_DQS_DataStore",
+# META       "default_lakehouse_workspace_id": "304b1974-676d-48af-b4e4-8cf6f0fe139e",
+# META       "known_lakehouses": [
+# META         {
+# META           "id": "72848c38-5bd9-4597-afd8-3e651a6caead"
+# META         }
+# META       ]
 # META     },
 # META     "environment": {
-# META       "environmentId": "69e4db09-b5d7-4ae8-b36f-bb904d1b0e7e",
-# META       "workspaceId": "24abee62-a042-437f-8ad6-d8b5d8fe5d4b"
+# META       "environmentId": "1379a247-1c57-9c87-4933-b5f5af0a38e9",
+# META       "workspaceId": "00000000-0000-0000-0000-000000000000"
 # META     }
 # META   }
 # META }
@@ -99,6 +105,17 @@ results = validation_def.run(batch_parameters={"dataframe": clean_df}, result_fo
 # META   "language_group": "synapse_pyspark"
 # META }
 
+# CELL ********************
+
+results
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
 # MARKDOWN ********************
 
 # #### Step 3: "Quarantine" invalid data 
@@ -149,6 +166,17 @@ final_df = add_validation_results_to_df(clean_df, 'SaleID', invalid_ids)
 # META   "language_group": "synapse_pyspark"
 # META }
 
+# CELL ********************
+
+display(final_df)
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
 # MARKDOWN ********************
 
 # #### Step 4: Merge into Clean table
@@ -191,7 +219,7 @@ else:
 # CELL ********************
 
 # update this cell with your ABFSS path
-dq_validation_logging_table_abfss = ""
+dq_validation_logging_table_abfss = "abfss://304b1974-676d-48af-b4e4-8cf6f0fe139e@onelake.dfs.fabric.microsoft.com/72848c38-5bd9-4597-afd8-3e651a6caead/Tables"
 
 
 # METADATA ********************

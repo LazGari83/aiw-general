@@ -1,0 +1,96 @@
+table clean_sales
+	lineageTag: 75a39204-4607-4167-b640-93e6cd8f5bc6
+	sourceLineageTag: [dbo].[clean_sales]
+
+	column SaleID
+		dataType: int64
+		formatString: 0
+		lineageTag: 90cf35d9-cb41-4c6b-b0cb-1add9c6afb51
+		sourceLineageTag: SaleID
+		summarizeBy: count
+		sourceColumn: SaleID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Address
+		dataType: string
+		lineageTag: 20077335-43c9-4b52-9a74-74e26a639980
+		sourceLineageTag: Address
+		summarizeBy: none
+		sourceColumn: Address
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: cf3dd090-3940-43c0-bea4-43085eb1daf1
+		sourceLineageTag: Type
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 38537971-59a0-4c4e-b4f1-3b875240b8a2
+		sourceLineageTag: City
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalePriceUSD
+		dataType: int64
+		formatString: 0
+		lineageTag: 8260bed6-5b27-4f5c-9cb8-9667dfada5cc
+		sourceLineageTag: SalePriceUSD
+		summarizeBy: sum
+		sourceColumn: SalePriceUSD
+
+		annotation SummarizationSetBy = Automatic
+
+	column Agent
+		dataType: string
+		lineageTag: 00f2584d-7262-4a61-8fb4-3f58c9be1d51
+		sourceLineageTag: Agent
+		summarizeBy: none
+		sourceColumn: Agent
+
+		annotation SummarizationSetBy = Automatic
+
+	column Transaction_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0ab343ae-7aef-43aa-87c7-ca1e8d71a2c7
+		sourceLineageTag: Transaction_TS
+		summarizeBy: none
+		sourceColumn: Transaction_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column RawLoad_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: eacfe20f-0a0b-4527-b362-f1ded4a805c7
+		sourceLineageTag: RawLoad_TS
+		summarizeBy: none
+		sourceColumn: RawLoad_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column passed_validation
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: da3f899d-a6f7-46c7-a016-66892b84a665
+		sourceLineageTag: passed_validation
+		summarizeBy: none
+		sourceColumn: passed_validation
+
+		annotation SummarizationSetBy = Automatic
+
+	partition clean_sales = entity
+		mode: directLake
+		source
+			entityName: clean_sales
+			expressionSource: 'DirectLake - DQ009_DQS_DataStore'
+

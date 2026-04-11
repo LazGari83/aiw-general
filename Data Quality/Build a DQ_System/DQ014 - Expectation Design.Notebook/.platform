@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "DQ014 - Expectation Design"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "fcffcb84-4bd0-8265-4862-64e9c4ddad18"
+  }
+}
