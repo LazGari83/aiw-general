@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/variableLibrary/definition/variables/1.0.0/schema.json",
+  "variables": [
+    {
+      "name": "WORKSPACE_NAME",
+      "note": "",
+      "type": "String",
+      "value": "Fabric_Dojo_2"
+    },
+    {
+      "name": "LAKEHOUSE_NAME",
+      "note": "",
+      "type": "String",
+      "value": "CD022_Sales"
+    },
+    {
+      "name": "SCHEMA_NAME",
+      "note": "",
+      "type": "String",
+      "value": "dbo"
+    }
+  ]
+}
