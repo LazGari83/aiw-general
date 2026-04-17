@@ -1,0 +1,1 @@
+CREATE ROLE [manager] AUTHORIZATION [db_securityadmin];

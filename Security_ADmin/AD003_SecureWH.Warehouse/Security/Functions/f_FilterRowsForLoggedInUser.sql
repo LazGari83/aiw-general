@@ -1,0 +1,7 @@
+-- STEP 1: CREATE A FUNCTION FOR FILTERING ROWS 
+CREATE   FUNCTION Security.f_FilterRowsForLoggedInUser(@SalesRep AS varchar(100))
+    RETURNS TABLE
+WITH SCHEMABINDING
+AS
+    RETURN SELECT 1 AS f_FilterResult
+WHERE @SalesRep = USER_NAME() OR IS_ROLEMEMBER('manager') = 1;
