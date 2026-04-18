@@ -13,6 +13,102 @@
     "sourceQueryCulture": "en-US",
     "tables": [
       {
+        "name": "CustomerDetails",
+        "sourceLineageTag": "[Sales].[CustomerDetails]",
+        "columns": [
+          {
+            "name": "CustomerId",
+            "dataType": "int64",
+            "sourceColumn": "CustomerId",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "CustomerId",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "CustomerName",
+            "dataType": "string",
+            "sourceColumn": "CustomerName",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "CustomerName",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "CustomerPaymentDetails",
+            "dataType": "string",
+            "sourceColumn": "CustomerPaymentDetails",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "CustomerPaymentDetails",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "CustomerAddress",
+            "dataType": "string",
+            "sourceColumn": "CustomerAddress",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "CustomerAddress",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "AccountCreationDate",
+            "dataType": "dateTime",
+            "sourceColumn": "AccountCreationDate",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "AccountCreationDate",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "CustomerDetails",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "Sales"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
         "name": "Orders",
         "sourceLineageTag": "[Sales].[Orders]",
         "columns": [
@@ -100,6 +196,258 @@
               "entityName": "Orders",
               "expressionSource": "DatabaseQuery",
               "schemaName": "Sales"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "EmployeeData",
+        "sourceLineageTag": "[dbo].[EmployeeData]",
+        "columns": [
+          {
+            "name": "EmployeeID",
+            "dataType": "int64",
+            "sourceColumn": "EmployeeID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "EmployeeID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "FirstName",
+            "dataType": "string",
+            "sourceColumn": "FirstName",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "FirstName",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "LastName",
+            "dataType": "string",
+            "sourceColumn": "LastName",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "LastName",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Address",
+            "dataType": "string",
+            "sourceColumn": "Address",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Address",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Country",
+            "dataType": "string",
+            "sourceColumn": "Country",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Country",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "EmailAddress",
+            "dataType": "string",
+            "sourceColumn": "EmailAddress",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "EmailAddress",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "PhoneNumber",
+            "dataType": "string",
+            "sourceColumn": "PhoneNumber",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "PhoneNumber",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DateOfBirth",
+            "dataType": "dateTime",
+            "sourceColumn": "DateOfBirth",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "DateOfBirth",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DateHired",
+            "dataType": "dateTime",
+            "sourceColumn": "DateHired",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "DateHired",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Department",
+            "dataType": "string",
+            "sourceColumn": "Department",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Department",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "JobTitle",
+            "dataType": "string",
+            "sourceColumn": "JobTitle",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "JobTitle",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Salary",
+            "dataType": "decimal",
+            "sourceColumn": "Salary",
+            "sourceProviderType": "decimal",
+            "sourceLineageTag": "Salary",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ManagerID",
+            "dataType": "int64",
+            "sourceColumn": "ManagerID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "ManagerID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DepartmentPhoneNumber",
+            "dataType": "string",
+            "sourceColumn": "DepartmentPhoneNumber",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "DepartmentPhoneNumber",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "EmergencyContactName",
+            "dataType": "string",
+            "sourceColumn": "EmergencyContactName",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "EmergencyContactName",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "EmergencyContactPhone",
+            "dataType": "string",
+            "sourceColumn": "EmergencyContactPhone",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "EmergencyContactPhone",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "EmployeeData",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
             }
           }
         ],

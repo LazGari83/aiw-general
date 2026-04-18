@@ -1,0 +1,1 @@
+CREATE ROLE [SalesReps] AUTHORIZATION [db_datareader];
