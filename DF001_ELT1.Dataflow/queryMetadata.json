@@ -1,0 +1,33 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "DF001_ELT1",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "DefaultDestination": {
+      "queryId": "3bcb1516-eabf-4ce2-9521-8a0aab11bad5",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "Bronze_Locations": {
+      "queryId": "fceea9c4-32a7-402b-9ce1-1e9273232762",
+      "queryName": "Bronze_Locations"
+    }
+  },
+  "connections": [
+    {
+      "path": "Warehouse",
+      "kind": "Warehouse",
+      "connectionId": "{\"ClusterId\":\"de08bc1b-1c4f-462b-a2c7-2ce69a7b93e0\",\"DatasourceId\":\"72c91b40-071a-4865-a680-0ccdec1173f0\"}"
+    },
+    {
+      "path": "https://raw.githubusercontent.com/LearnMicrosoftFabric/dojo/main/datasets/locations2.csv",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"de08bc1b-1c4f-462b-a2c7-2ce69a7b93e0\",\"DatasourceId\":\"d36a19b7-28ee-45d9-82a6-66d7a837080b\"}"
+    }
+  ]
+}

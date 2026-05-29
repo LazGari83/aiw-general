@@ -1,0 +1,28 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "DF001_ELT2",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "DefaultDestination": {
+      "queryId": "771551c2-1802-4b6b-953e-afab02f6cb4b",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "Silver_Locations": {
+      "queryId": "acee35a0-d70c-4f0e-a973-7a1931bc6abf",
+      "queryName": "Silver_Locations"
+    }
+  },
+  "connections": [
+    {
+      "path": "Warehouse",
+      "kind": "Warehouse",
+      "connectionId": "{\"ClusterId\":\"de08bc1b-1c4f-462b-a2c7-2ce69a7b93e0\",\"DatasourceId\":\"72c91b40-071a-4865-a680-0ccdec1173f0\"}"
+    }
+  ]
+}

@@ -1,0 +1,658 @@
+{
+  "name": "{{Dataset_Name}}",
+  "compatibilityLevel": 1604,
+  "model": {
+    "name": "{{Dataset_Name}}",
+    "culture": "en-US",
+    "collation": "Latin1_General_100_BIN2_UTF8",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "Bronze_Locations",
+        "sourceLineageTag": "[dbo].[Bronze_Locations]",
+        "columns": [
+          {
+            "name": "id",
+            "dataType": "int64",
+            "sourceColumn": "id",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "organization_id",
+            "dataType": "int64",
+            "sourceColumn": "organization_id",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "organization_id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "accessibility",
+            "dataType": "string",
+            "sourceColumn": "accessibility",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "accessibility",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "admin_emails",
+            "dataType": "string",
+            "sourceColumn": "admin_emails",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "admin_emails",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "alternate_name",
+            "dataType": "string",
+            "sourceColumn": "alternate_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "alternate_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "description",
+            "dataType": "string",
+            "sourceColumn": "description",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "description",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "email",
+            "dataType": "string",
+            "sourceColumn": "email",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "email",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "location_name",
+            "dataType": "string",
+            "sourceColumn": "location_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "location_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "manager_name",
+            "dataType": "string",
+            "sourceColumn": "manager_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "manager_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "Bronze_Locations",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "Silver_Addresses",
+        "sourceLineageTag": "[dbo].[Silver_Addresses]",
+        "columns": [
+          {
+            "name": "id",
+            "dataType": "int64",
+            "sourceColumn": "id",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "location_id",
+            "dataType": "int64",
+            "sourceColumn": "location_id",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "location_id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "organization_id",
+            "dataType": "int64",
+            "sourceColumn": "organization_id",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "organization_id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "service_id",
+            "dataType": "int64",
+            "sourceColumn": "service_id",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "service_id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "first_name",
+            "dataType": "string",
+            "sourceColumn": "first_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "first_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "surname",
+            "dataType": "string",
+            "sourceColumn": "surname",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "surname",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "title",
+            "dataType": "string",
+            "sourceColumn": "title",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "title",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "email",
+            "dataType": "string",
+            "sourceColumn": "email",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "email",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "department",
+            "dataType": "string",
+            "sourceColumn": "department",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "department",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "Silver_Addresses",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "Silver_Locations",
+        "sourceLineageTag": "[dbo].[Silver_Locations]",
+        "columns": [
+          {
+            "name": "id",
+            "dataType": "int64",
+            "sourceColumn": "id",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "organization_id",
+            "dataType": "int64",
+            "sourceColumn": "organization_id",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "organization_id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "accessibility",
+            "dataType": "string",
+            "sourceColumn": "accessibility",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "accessibility",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "admin_emails",
+            "dataType": "string",
+            "sourceColumn": "admin_emails",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "admin_emails",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "alternate_name",
+            "dataType": "string",
+            "sourceColumn": "alternate_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "alternate_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "description",
+            "dataType": "string",
+            "sourceColumn": "description",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "description",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "email",
+            "dataType": "string",
+            "sourceColumn": "email",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "email",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "location_name",
+            "dataType": "string",
+            "sourceColumn": "location_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "location_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "manager_first_name",
+            "dataType": "string",
+            "sourceColumn": "manager_first_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "manager_first_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "manager_surname",
+            "dataType": "string",
+            "sourceColumn": "manager_surname",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "manager_surname",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "Silver_Locations",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "locations2",
+        "sourceLineageTag": "[dbo].[locations2]",
+        "columns": [
+          {
+            "name": "id",
+            "dataType": "int64",
+            "sourceColumn": "id",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "organization_id",
+            "dataType": "int64",
+            "sourceColumn": "organization_id",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "organization_id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "accessibility",
+            "dataType": "string",
+            "sourceColumn": "accessibility",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "accessibility",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "admin_emails",
+            "dataType": "string",
+            "sourceColumn": "admin_emails",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "admin_emails",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "alternate_name",
+            "dataType": "string",
+            "sourceColumn": "alternate_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "alternate_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "description",
+            "dataType": "string",
+            "sourceColumn": "description",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "description",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "email",
+            "dataType": "string",
+            "sourceColumn": "email",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "email",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "location_name",
+            "dataType": "string",
+            "sourceColumn": "location_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "location_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "manager_name",
+            "dataType": "string",
+            "sourceColumn": "manager_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "manager_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "locations2",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      }
+    ],
+    "expressions": [
+      {
+        "name": "DatabaseQuery",
+        "kind": "m",
+        "expression": "let\n    database = {{TDS_Endpoint}}\nin\n    database\n"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "SourceLineageTagType",
+        "value": "DatabaseFullyQualifiedName"
+      }
+    ]
+  }
+}
