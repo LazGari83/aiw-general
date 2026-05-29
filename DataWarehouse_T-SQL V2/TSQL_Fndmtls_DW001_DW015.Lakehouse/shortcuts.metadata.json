@@ -1,0 +1,50 @@
+[
+  {
+    "name": "watermark",
+    "path": "/Tables",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/metadata/watermark",
+        "itemId": "5d3af2eb-4aa2-46e4-bd81-4da1ff37f0a2",
+        "workspaceId": "79b2912a-d32d-4029-8d21-85faafc9c20b"
+      }
+    }
+  },
+  {
+    "name": "hubspot_locations_lookup",
+    "path": "/Tables",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/raw/hubspot_locations_lookup",
+        "itemId": "5d3af2eb-4aa2-46e4-bd81-4da1ff37f0a2",
+        "workspaceId": "79b2912a-d32d-4029-8d21-85faafc9c20b"
+      }
+    }
+  },
+  {
+    "name": "hubspot_contacts",
+    "path": "/Tables",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/raw/hubspot_contacts",
+        "itemId": "5d3af2eb-4aa2-46e4-bd81-4da1ff37f0a2",
+        "workspaceId": "79b2912a-d32d-4029-8d21-85faafc9c20b"
+      }
+    }
+  },
+  {
+    "name": "contacts",
+    "path": "/Tables",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/transformed/contacts",
+        "itemId": "5d3af2eb-4aa2-46e4-bd81-4da1ff37f0a2",
+        "workspaceId": "79b2912a-d32d-4029-8d21-85faafc9c20b"
+      }
+    }
+  }
+]

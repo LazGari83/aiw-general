@@ -1,0 +1,116 @@
+{
+  "properties": {
+    "jobMode": "CDC",
+    "source": {
+      "type": "DelimitedText",
+      "connectionSettings": {
+        "type": "Lakehouse",
+        "typeProperties": {
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "artifactId": "1919e881-8fcb-8e8b-42a4-1dd72db8d35a",
+          "rootFolder": "Files"
+        }
+      }
+    },
+    "destination": {
+      "type": "LakehouseTable",
+      "connectionSettings": {
+        "type": "Lakehouse",
+        "typeProperties": {
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "artifactId": "1919e881-8fcb-8e8b-42a4-1dd72db8d35a",
+          "rootFolder": "Tables"
+        }
+      }
+    },
+    "policy": {
+      "timeout": "0.12:00:00",
+      "retry": 0
+    }
+  },
+  "activities": [
+    {
+      "id": "17e4b825-775c-4f50-bbc3-8ac8e2fcdd19",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "location": {
+              "type": "LakehouseLocation",
+              "fileName": "copyjob_upserts.csv"
+            },
+            "columnDelimiter": ",",
+            "escapeChar": "\\",
+            "firstRowAsHeader": true,
+            "quoteChar": "\""
+          },
+          "changeDataSettings": {
+            "readMethod": "SnapshotPlusIncremental"
+          },
+          "storeSettings": {
+            "recursive": true,
+            "enablePartitionDiscovery": false
+          },
+          "formatSettings": {}
+        },
+        "destination": {
+          "upsertSettings": {
+            "keys": [
+              "row_id"
+            ]
+          },
+          "writeBehavior": "Upsert",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "sales_figures"
+          },
+          "applyVOrder": false
+        },
+        "enableStaging": false,
+        "translator": {
+          "type": "TabularTranslator",
+          "mappings": [
+            {
+              "source": {
+                "name": "row_id",
+                "type": "String",
+                "physicalType": "String"
+              },
+              "destination": {
+                "name": "row_id",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "value",
+                "type": "String",
+                "physicalType": "String"
+              },
+              "destination": {
+                "name": "value",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "last_modified_by",
+                "type": "String",
+                "physicalType": "String"
+              },
+              "destination": {
+                "name": "last_modified_by",
+                "physicalType": "string"
+              }
+            }
+          ]
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    }
+  ]
+}

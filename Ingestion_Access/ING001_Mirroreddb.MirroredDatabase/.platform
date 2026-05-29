@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "MirroredDatabase",
+    "displayName": "ING001_Mirroreddb"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "978c72d2-9d05-b724-47cc-bc154c9a7612"
+  }
+}
