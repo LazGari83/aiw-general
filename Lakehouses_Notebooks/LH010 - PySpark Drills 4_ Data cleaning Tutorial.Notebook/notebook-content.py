@@ -171,6 +171,18 @@ df.filter(df.SalePriceUSD.isNull()).show()
 # META   "language_group": "synapse_pyspark"
 # META }
 
+# CELL ********************
+
+# exploring the # of Null values in the column
+df.filter(df.SalePriceUSD.cast("integer").isNull()).count()
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
 # MARKDOWN ********************
 
 # Let's focus on three data quality issues that our (my) investigation found. 

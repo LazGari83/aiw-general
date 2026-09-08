@@ -130,9 +130,8 @@ from pyspark.sql.functions import max
 
 # group by the Agent, using agg(max().alias())
 (df.groupBy('Agent')
-.agg(max('SalePriceUSD')
-.alias('MaxSalePrice'))
-.show()
+    .agg(max('SalePriceUSD').alias('MaxSalePrice'))
+    .show()
 )
 
 # METADATA ********************
@@ -192,12 +191,12 @@ from pyspark.sql.functions import avg,max,round,col
 
 # groupby City, and max and avg aggregations of SalePriceUSD, where AvgSalePrice > 500k
 (df.groupBy('City')
-.agg(
-    round(max('SalePriceUSD'),0).alias('MaxSalePrice'),
-    round(avg('SalePriceUSD'),0).alias('AvgSalePrice')
-)
-.where(col('AvgSalePrice')>=500000)
-.show()
+    .agg(
+        round(max('SalePriceUSD'),0).alias('MaxSalePrice'),
+        round(avg('SalePriceUSD'),0).alias('AvgSalePrice')
+        )
+    .where(col('AvgSalePrice')>=500000)
+    .show()
 
 )
 

@@ -88,7 +88,7 @@ display(property_sales_df)
 # CELL ********************
 
 # show a printed representation of the DataFrame
-
+display(property_sales_df)
 
 # METADATA ********************
 
@@ -120,7 +120,7 @@ property_sales_df.show()
 # CELL ********************
 
 # Display just the first two rows of my DataFrame
-display(property_sales_df)
+display(property_sales_df.head(2))
 
 # METADATA ********************
 

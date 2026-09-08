@@ -26,6 +26,21 @@
 
 # CELL ********************
 
+import pandas as pd
+
+wrangler_sample_df = pd.read_csv("https://aka.ms/wrangler/titanic.csv")
+display(wrangler_sample_df)
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark",
+# META   "editable": true
+# META }
+
+# CELL ********************
+
 %pip install altair
 
 # METADATA ********************

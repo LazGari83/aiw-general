@@ -92,7 +92,7 @@ df.createOrReplaceTempView("new_property_sales")
 # using Spark SQL UNPIVOT() , convert the three SalePriceUSD columns into one single SalePriceUSD column. Assign the output to sales_unpivoted
 sales_unpivoted = spark.sql('''
     SELECT * from new_property_sales
-        UNPIVOT(SalePriceUSD FOR type in(House_SalePriceUSD, Apartment_SalePriceUSD, Apartment_SalePriceUSD)
+        UNPIVOT(SalePriceUSD FOR type in(House_SalePriceUSD, Apartment_SalePriceUSD, DetachedHouse_SalePriceUSD)
         )
         '''
 )
